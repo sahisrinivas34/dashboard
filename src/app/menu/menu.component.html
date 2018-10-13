@@ -1,0 +1,25 @@
+
+<div class="container">
+  <br>
+<form [formGroup]="myform" (ngSubmit)="onSubmit()"  >
+  <div class="form-group col-md-3"[ngClass]="{'has-success':myform.controls.users.valid,
+  'has-danger':myform.controls.users.invalid}">
+  
+    <select class="form-control" formControlName="users">
+      <option *ngFor="let users of userList.rows" [value]="users.id">{{users.id}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-3" [ngClass]="{'has-success':myform.controls.date.valid,
+  'has-danger':myform.controls.date.invalid}">
+   
+    <input placeholder="DDMMYYYY" type="text" formControlName="date"class="form-control ">
+  </div>
+
+<div class="form-group col-md-3">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+
+</form>
+</div>
+<app-mapscomponent [locdata]="locdata"></app-mapscomponent>
